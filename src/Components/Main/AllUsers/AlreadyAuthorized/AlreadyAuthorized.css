@@ -1,0 +1,12 @@
+.authMessage {
+    text-align: center;
+}
+
+.authTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.authText {
+    font-size: 1.2rem;
+}

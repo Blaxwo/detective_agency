@@ -1,0 +1,49 @@
+
+
+.clientsCases .caseList {
+    list-style: none;
+    padding: 0;
+}
+
+.clientsCases .caseItem {
+    margin-bottom: 10px;
+}
+
+.clientsCases .inputField {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.clientsCases .textareaField {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.clientsCases .submitButton {
+    padding: 10px 20px;
+    background-color: #2c2cb6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clientsCases .submitButton:hover {
+    background-color: #1c1c8c;
+}
+
+.clientsCases .infoMessage {
+    margin-top: 20px;
+}
+
+
+

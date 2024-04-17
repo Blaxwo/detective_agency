@@ -1,0 +1,14 @@
+.clients{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+.clients .clientsCart{
+    font-size: 22px;
+    width: 300px;
+    text-align: center;
+    background: #8f8f8f;
+}

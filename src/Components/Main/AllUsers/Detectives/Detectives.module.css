@@ -1,0 +1,101 @@
+
+/*.detectivesList {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+/*    gap: 20px;*/
+/*}*/
+.form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 30px 0;
+    font-size: 20px;
+}
+.info strong{
+    font-weight: 800;
+}
+.info span{
+    font-weight: 400;
+}
+.formForDetectives{
+    padding-left: 70px;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.noSuchDetectives{
+    /*opacity: 0;*/
+    /*display: none;*/
+    /*background: #6262e3;*/
+    color: red;
+    /*width: 100%;*/
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.slider{
+    width: 1200px;
+}
+.detective {
+    margin: 0 30px 0 30px;
+    width: 300px;
+    display: flex;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    align-items: center;
+
+}
+
+.detectivePhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.detectiveInfo {
+    flex: 1;
+    margin-left: 20px;
+    /*display: flex;*/
+    /*align-items: stretch;*/
+}
+
+.detectiveName {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.info {
+    margin: 5px 0 10px 0;
+    font-size: 16px;
+}
+.detectivesCompCases{
+    text-align: center;
+}
+
+.detectiveNameWithCalendar{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+.heading {
+    text-align: center;
+    color: #333;
+    font-size: 50px;
+
+}
+.resetFiltersButton{
+    font-size: 20px;
+    height: 50px;
+    margin-top: 25px;
+}

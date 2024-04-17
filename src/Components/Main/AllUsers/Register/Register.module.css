@@ -1,0 +1,90 @@
+
+.register{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.register label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="number"],
+.register input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.register button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.register button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.register p {
+    margin-bottom: 10px;
+}
+
+.register a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Инструкции для ввода */
+.register .instructions {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Иконки проверки и ошибки */
+.register .valid {
+    color: green;
+}
+
+.register .invalid {
+    color: red;
+}
+
+.register .hide {
+    display: none;
+}
+
+/* Ссылка на вход */
+.register .line {
+    display: block;
+    margin-top: 10px;
+}
+
+.register.line a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register .line a:hover {
+    text-decoration: underline;
+}
+
+/* Сообщение об ошибке */
+.register .errmsg {
+    color: red;
+    font-weight: bold;
+}
+.mainRegister{
+    margin-bottom: 50px;
+    width: 400px;
+}

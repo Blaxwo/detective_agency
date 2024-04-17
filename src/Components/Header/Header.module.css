@@ -1,0 +1,28 @@
+header{
+    width: 100%;
+    display: flex;
+    background: #2c2cb6;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+nav a{
+    color: white;
+    margin: 10px 10px 10px 10px;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+.userIcon{
+    width: 30px;
+}
+.companyName{
+    font-size: 40px;
+}
+.logoAndName{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
