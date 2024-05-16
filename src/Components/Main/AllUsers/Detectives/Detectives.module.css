@@ -31,7 +31,14 @@
     color: red;
     /*width: 100%;*/
 }
-.main{
+/*.main{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-content: center;*/
+/*    align-items: center;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+.detectives{
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -42,11 +49,11 @@
     width: 1200px;
 }
 .detective {
-    margin: 0 30px 0 30px;
+    margin: 20px 30px 0 30px;
     width: 300px;
     display: flex;
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 0px 30px 20px 20px ;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -95,7 +102,11 @@
 
 }
 .resetFiltersButton{
-    font-size: 20px;
-    height: 50px;
-    margin-top: 25px;
+    font-size: 18px;
+    height: 48px;
+    background: rgba(232, 232, 234, 0.66);
+    border-radius: 5px;
+    padding: 12px 17px 18px 17px;
+    border-color: #8d8c8c;
+    box-shadow: none;
 }

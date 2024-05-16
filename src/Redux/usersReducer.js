@@ -12,10 +12,10 @@ const initialState = {
         {id: 8, role: "detective", name: "Luke4", password: 7699, gender: "male",mail: "luke4@gmail.com",office:"Rameshki",img:avatarMan, experience: "10 years", calendar: "https://calendar.google.com/calendar/embed?src=c452649ed7d4d1c6829695e1f9064f0a79680831e0bd1cfc3adb1ec402905c58%40group.calendar.google.com&ctz=UTC"},
         {id: 9, role: "detective", name: "Luke5", password: 7699, gender: "male",mail: "luke5@gmail.com",office:"Rameshki",img:avatarMan, experience: "10 years", calendar: "https://calendar.google.com/calendar/embed?src=c452649ed7d4d1c6829695e1f9064f0a79680831e0bd1cfc3adb1ec402905c58%40group.calendar.google.com&ctz=UTC"},
 
-        {id: 5, role: "client", name: "Mark", password: 3232, mail: "mark@gmail.com", age: 22, description: "Nice young man", workplace: "Gardener", Paid: "Yes"},
-        {id: 6, role: "client", name: "April", password: 1221, mail: "april@gmail.com", age: 62, description: "Very energetic woman", workplace: "Nurse", Paid: "Yes"},
-        {id: 7, role: "client", name: "Alex", password: 4000, mail: "alex@gmail.com", age: 30, description: "Paranoid, scared to have a traitor in his company", workplace: "Businessman", Paid: "Yes"},
-        {id: 8, role: "client", name: "Simon", password: 3333, mail: "simon@gmail.com", age: 18, description: "Always loose his favorite bird", workplace: "Unemployed", Paid: "No"},
+        {id: 10, role: "client", name: "Mark", password: 3232, mail: "mark@gmail.com", age: 30, description: "Nice young man", workplace: "Gardener", paid: "Yes"},
+        {id: 11, role: "client", name: "April", password: 1221, mail: "april@gmail.com", age: 62, description: "Very energetic woman", workplace: "Nurse", paid: "Yes"},
+        {id: 12, role: "client", name: "Alex", password: 4000, mail: "alex@gmail.com", age: 30, description: "Paranoid, scared to have a traitor in his company", workplace: "Businessman", paid: "Yes"},
+        {id: 13, role: "client", name: "Simon", password: 3333, mail: "simon@gmail.com", age: 18, description: "Always loose his favorite bird", workplace: "Unemployed", paid: "No"},
         // {id: 9, role: "client", name: "Simon", password: 3333, cases: [{name: "Lost a bird", status: "done"}]},
         // {id: 10, role: "client", name: "Simon", password: 3333, cases: [{name: "Lost a bird", status: "done"}]},
         // {id: 11, role: "client", name: "Simon", password: 3333, cases: [{name: "Lost a bird", status: "done"}]},
@@ -27,6 +27,7 @@ const initialState = {
     loading: true,
     error: null,
 };
+const DETECTIVE_ROLE = "detective";
 const usersReducer = (state=initialState, action) => {
     switch (action.type) {
         case 'ADD_USER':
@@ -36,9 +37,30 @@ const usersReducer = (state=initialState, action) => {
             };
             localStorage.setItem('users', JSON.stringify(newState.users));
             return newState;
+        case 'UPDATE_USER':
+            console.log("1")
+            const updatedUsers = state.users.map(user => {
+                if (user.id === action.payload.id) {
+                    console.log("2")
+                    return {
+                        ...user,
+                        ...action.payload.updatedFields
+                    };
+                }
+                return user;
+            });
+            const newStateUpdate = {
+                ...state,
+                users: updatedUsers
+            };
+            localStorage.setItem('users', JSON.stringify(newStateUpdate.users));
+            return newStateUpdate;
         default:
             return state;
     }
+};
+export const getDetectives = () => {
+    return initialState.users.filter(user => user.role.toString() === DETECTIVE_ROLE);
 };
 export const addNewClient = (user) => {
     return {
@@ -46,5 +68,14 @@ export const addNewClient = (user) => {
         payload: user
     };
 }
+export const updateUser = (id, updatedFields) => {
+    return {
+        type: 'UPDATE_USER',
+        payload: {
+            id,
+            updatedFields
+        }
+    };
+};
 
 export default usersReducer;

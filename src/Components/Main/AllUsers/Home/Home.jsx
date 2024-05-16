@@ -1,8 +1,11 @@
 import React from "react";
 import style from "./Home.module.css";
+import certificateStyle from "../../Main.module.css";
 import heroImage from "../../../../assets/detective-agency.jpg";
 import detectiveAgency from "../../../../assets/detective-agency.jpg"
-
+import links from '../../../hyperlinksController'
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Main = (props) => {
     return (
@@ -19,7 +22,7 @@ const Main = (props) => {
 
                 {/* Services Section */}
                 <section className={style.services}>
-                    <h2 className={style.sectionTitle}>Our Services</h2>
+                    <h2 className={style.sectionTitle}>Our <a className={certificateStyle.glosarij} style={{color: '#333'}} href={links.glosarij_Services} target="_blank">Services</a></h2>
                     <div className={style.servicesGrid}>
                         <div className={style.service}>
                             <h3>Surveillance</h3>
@@ -51,14 +54,22 @@ const Main = (props) => {
 
                 {/* Contact Form Section */}
                 <section className={style.contact}>
-                    <h2 className={style.sectionTitle}>Contact Us</h2>
-                    <form className={style.contactForm}>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <textarea placeholder="Message"></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
+                    <section className={style.contact}>
+                        <h2 className={style.sectionTitle}><a className={certificateStyle.glosarij} style={{color: '#333'}} href={links.glosarij_Forma_ContactUs} target="_blank">Contact Us</a></h2>
+                        <form className={style.contactForm}>
+                            <input type="text" placeholder="Name" />
+                            <input type="email" placeholder="Email" />
+                            <textarea placeholder="Message"></textarea>
+                            <input type="text" placeholder="Address" />
+                            <button type="submit">Send Message</button>
+                        </form>
+                        <p className={style.addressInfo}>Visit us at: 123 Main Street, City, Country</p>
+                    </section>
                 </section>
+            </div>
+            <div className={certificateStyle.certificate}>
+                <a href={links.home_page} target="_blank">About this page</a>
+                <FontAwesomeIcon icon={faInfoCircle} />
             </div>
         </main>
     );

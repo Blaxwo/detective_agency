@@ -20,11 +20,16 @@ import MainAlreadyAuthorized from "./Components/Main/AllUsers/AlreadyAuthorized/
 import MainMyCasesDetective from "./Components/Main/Detective/MyCases/MyCasesDetective";
 import MainMyClients from "./Components/Main/Detective/MyClients/MyClients";
 import MainAllClients from "./Components/Main/Manager/AllClients/AllClients";
-import MainNewCases from "./Components/Main/Manager/NewCases/NewCases";
+import MainCases from "./Components/Main/Manager/Cases/Cases";
+import MainDoneCases from "./Components/Main/Manager/Cases/DoneCases/DoneCases";
+import MainOngoingCases from "./Components/Main/Manager/Cases/OngoingCases/OngoingCases";
+import MainCanceledCases from "./Components/Main/Manager/Cases/CancelledCases/CancelledCases";
+import MainNewCases from "./Components/Main/Manager/Cases/NewCases/NewCases";
+
+
 import MainDetectivesForManager from "./Components/Main/Manager/DetectivesForManager/DetectivesForManager";
 import { useSelector } from 'react-redux';
 function App(props) {
-  // console.log(props)
     const roles = useSelector(state =>state.rolesPage.roles);
   console.log(roles)
     const roleRoutesAboutUs = roles.map(role => (
@@ -44,15 +49,6 @@ function App(props) {
     <div className="App">
         <Routes>
             <Route path='/*' element={<Header/>}/>
-            {/*<Route element={<RequireAuth allowedRoles={[ROLES.Manager]} />}>*/}
-            {/*    <Route path="/manager/*" element={<HeaderManager />} />*/}
-            {/*</Route>*/}
-            {/*<Route element={<RequireAuth allowedRoles={[ROLES.Detective]} />}>*/}
-            {/*    <Route path="/detective/*" element={<HeaderDetective />} />*/}
-            {/*</Route>*/}
-            {/*<Route element={<RequireAuth allowedRoles={[ROLES.Client]} />}>*/}
-            {/*    <Route path="/client/*" element={<HeaderClient />} />*/}
-            {/*</Route>*/}
             <Route path='/detective/*' element={<HeaderDetective/>}/>
             <Route path='/client/*' element={<HeaderClient/>}/>
             <Route path="/manager/*" element={<HeaderManager />} />
@@ -69,16 +65,18 @@ function App(props) {
             {roleRoutesAboutUs}
             {roleRoutesServices}
             {roleRoutesComments}
-            {/* we want to protect these routes */}
             {roleRoutesLogin}
             <Route path='/client/detectives' element={<MainDetectives/>}/>
             <Route path='/client/my_cases' element={<MainMyCasesClient/>}/>
-            {/*need to be changed*/}
             <Route path='/detective/detectives' element={<MainDetectivesForManager/>}/>
             <Route path='/detective/my_cases' element={<MainMyCasesDetective/>}/>
             <Route path='/detective/my_clients' element={<MainMyClients/>}/>
             <Route path='/manager/all_clients' element={<MainAllClients/>}/>
-            <Route path='/manager/new_cases' element={<MainNewCases/>}/>
+            <Route path='/manager/cases' element={<MainCases/>}/>
+            <Route path='/manager/new_cases' element={<MainNewCases />} />
+            <Route path='/manager/done_cases' element={<MainDoneCases />} />
+            <Route path='/manager/ongoing_cases' element={<MainOngoingCases />} />
+            <Route path='/manager/canceled_cases' element={<MainCanceledCases />} />
             <Route path='/manager/detectives' element={<MainDetectivesForManager/>}/>
         </Routes>
       </Main>

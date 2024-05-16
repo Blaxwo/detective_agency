@@ -20,9 +20,35 @@ nav{
 }
 .companyName{
     font-size: 40px;
+    color: white;
 }
 .logoAndName{
     text-decoration: none;
     display: flex;
     flex-direction: row;
+}
+.casesWrapper {
+    position: relative;
+}
+
+.casesMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.casesMenu a {
+    display: block;
+    color: #333;
+    padding: 8px 15px;
+    text-decoration: none;
+}
+
+.casesMenu a:hover {
+    background-color: #f0f0f0;
 }

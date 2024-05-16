@@ -8,35 +8,36 @@
     padding: 1rem;
     background-color: rgba(0,0,0,0.4);
     margin-bottom: 130px;
+    margin-top: 8%;
 }
 
-form {
+.logInSection form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 1rem;
 }
-a, a:visited {
+.logInSection a, .logInSection a:visited {
     color: #fff;
 }
 
-input[type="text"],
-input[type="password"],
-button,
-textarea {
+.logInSection input[type="text"],
+.logInSection input[type="password"],
+.logInSection button,
+.logInSection textarea {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     padding: 0.25rem;
     border-radius: 0.5rem;
 }
 
-label,
-button {
+.logInSection label,
+.logInSection button {
     margin-top: 1rem;
 }
 
-button {
+.logInSection button {
     padding: 0.5rem;
 }
 
@@ -84,3 +85,7 @@ button {
     display: inline-block;
 }
 
+.page{
+    display: flex;
+    justify-content: center;
+}

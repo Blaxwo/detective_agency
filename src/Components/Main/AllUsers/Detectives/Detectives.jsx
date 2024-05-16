@@ -5,6 +5,10 @@ import 'react-slidy/lib/styles.css';
 import photo from "../../../../assets/avatarMan.png";
 import { useSelector } from 'react-redux';
 import DetectiveChart from "../DetectiveChart/DetectiveChart";
+import certificateStyle from "../../Main.module.css";
+import links from "../../../hyperlinksController";
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Main = () => {
     const users = useSelector(state => state.usersPage.users);
@@ -16,19 +20,7 @@ const Main = () => {
         gender: ""
     });
     const [filteredDetectives, setFilteredDetectives] = useState([]);
-    // const [searchInput, SetSearchInput] = useState("");
-    // const FilteredData = () => {
-    //     return filteredDetectives.filter(
-    //         (user) =>
-    //             user.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //             user.role.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //             user.gender.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //             user.experience.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //             user.office.toLowerCase().includes(searchInput.toLowerCase()) ||
-    //             user.mail.toLowerCase().includes(searchInput.toLowerCase())
-    //
-    //     );
-    // };
+
     const handleResetFilters = () => {
         setFilterCriteria({
             experience: "",
@@ -39,7 +31,7 @@ const Main = () => {
 
     useEffect(() => {
         filterDetectives();
-    }, [filterCriteria]); // Re-run when filterCriteria changes
+    }, [filterCriteria]);
 
     const getDetectiveCasesCount = (detectiveName) => {
         return cases.filter(c => c.detective === detectiveName && c.status === "done").length;
@@ -63,73 +55,68 @@ const Main = () => {
         if (filterCriteria.gender) {
             filtered = filtered.filter(detective => detective.gender === filterCriteria.gender);
         }
-        // if (filterCriteria.role) {
-        //     filtered = filtered.filter(detective => detective.role === filterCriteria.role);
-        // }
-        // if (filterCriteria.office) {
-        //     filtered = filtered.filter(detective => detective.office === filterCriteria.office);
-        // }
-        // if (filterCriteria.mail) {
-        //     filtered = filtered.filter(detective => detective.mail === filterCriteria.mail);
-        // }
         setFilteredDetectives(filtered);
         setShowNoSuchDetectives(filtered.length === 0);
     };
 
     return (
         <main className={style.main}>
-            <h1 className={style.heading}>Detectives</h1>
-            <form className={style.formForDetectives}>
-                <div className={style.form}>
-                    <label htmlFor="filterExperience">Filter by Experience:</label>
-                    <select id="filterExperience" value={filterCriteria.experience} onChange={(e) => setFilterCriteria({ ...filterCriteria, experience: e.target.value })}>
-                        <option value="">All</option>
-                        <option value="10 years">10 years</option>
-                        <option value="2 years">2 years</option>
-                        <option value="5 years">5 years</option>
-                        {/* Add more experience options if needed */}
-                    </select>
-                </div>
+            <div className={style.detectives}>
+                <h1 className={style.heading}>Detectives</h1>
+                <form className={style.formForDetectives}>
+                    <div className={style.form}>
+                        <label htmlFor="filterExperience"><a className={certificateStyle.glosarij} href={links.glosarij_Filtration} target="_blank">Filter</a> by <a className={certificateStyle.glosarij} href={links.glosarij_Experience} target="_blank">Experience</a>:</label>
+                        <select id="filterExperience" value={filterCriteria.experience} onChange={(e) => setFilterCriteria({ ...filterCriteria, experience: e.target.value })}>
+                            <option value="">All</option>
+                            <option value="10 years">10 years</option>
+                            <option value="2 years">2 years</option>
+                            <option value="5 years">5 years</option>
+                        </select>
+                    </div>
 
-                <div className={style.form}>
-                    <label htmlFor="filterSolvedCases">Filter by Solved Cases:</label>
-                    <input type="number" id="filterSolvedCases" value={filterCriteria.solvedCases} onChange={(e) => setFilterCriteria({ ...filterCriteria, solvedCases: e.target.value })} />
-                </div>
+                    <div className={style.form}>
+                        <label htmlFor="filterSolvedCases"><a className={certificateStyle.glosarij} href={links.glosarij_Filtration} target="_blank">Filter</a> by Solved <a className={certificateStyle.glosarij} href={links.glosarij_Case} target="_blank">Cases</a>:</label>
+                        <input type="number" id="filterSolvedCases" value={filterCriteria.solvedCases} onChange={(e) => setFilterCriteria({ ...filterCriteria, solvedCases: e.target.value })} />
+                    </div>
 
-                <div className={style.form}>
-                    <label htmlFor="filterGender">Filter by Gender:</label>
-                    <select id="filterGender" value={filterCriteria.gender} onChange={(e) => setFilterCriteria({ ...filterCriteria, gender: e.target.value })}>
-                        <option value="">All</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        {/* Add more gender options if needed */}
-                    </select>
-                </div>
-                <button className={style.resetFiltersButton} onClick={handleResetFilters}>Reset Filters</button>
-            </form>
-            <div className={style.slider}>
-                <ReactSlidy infiniteLoop useFullWidth={false} numOfSlides={3}>
-                    {filteredDetectives.map(detective => (
-                        <div key={detective.id} className={`${style.detective} ${style[detective.experience]}`}>
-                            <img src={detective.img || photo} alt={detective.name} className={style.detectivePhoto} />
-                            <div className={style.detectiveInfo}>
-                                <h2 className={style.detectiveName}>{detective.name}</h2>
-                                <h2 className={style.info}><strong>Role:</strong> <span>{detective.role}</span></h2>
-                                <h2 className={style.info}><strong>Experience:</strong> <span>{detective.experience}</span></h2>
-                                <h2 className={style.info}><strong>Completed Cases:</strong> <span>{detective.completedCases}</span></h2>
-                                <h2 className={style.info}><strong>Email:</strong> <span>{detective.mail}</span></h2>
-                                <h2 className={style.info}><strong>Office:</strong> <span>{detective.office}</span></h2>
+                    <div className={style.form}>
+                        <label htmlFor="filterGender"><a className={certificateStyle.glosarij} href={links.glosarij_Filtration} target="_blank">Filter</a> by Gender:</label>
+                        <select id="filterGender" value={filterCriteria.gender} onChange={(e) => setFilterCriteria({ ...filterCriteria, gender: e.target.value })}>
+                            <option value="">All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <button className={style.resetFiltersButton} onClick={handleResetFilters}>Reset Filters</button>
+                </form>
+                <div className={style.slider}>
+                    <ReactSlidy infiniteLoop useFullWidth={false} numOfSlides={3}>
+                        {filteredDetectives.map(detective => (
+                            <div key={detective.id} className={`${style.detective} ${style[detective.experience]}`}>
+                                <img src={detective.img || photo} alt={detective.name} className={style.detectivePhoto} />
+                                <div className={style.detectiveInfo}>
+                                    <h2 className={style.detectiveName}>{detective.name}</h2>
+                                    <h2 className={style.info}><strong><a className={certificateStyle.glosarij} href={links.glosarij_Role} target="_blank">Role</a>:</strong> <span><a className={certificateStyle.glosarij} href={links.glosarij_Detective} target="_blank">{detective.role}</a></span></h2>
+                                    <h2 className={style.info}><strong><a className={certificateStyle.glosarij} href={links.glosarij_Experience} target="_blank">Experience</a>:</strong> <span>{detective.experience}</span></h2>
+                                    <h2 className={style.info}><strong>Completed Cases:</strong> <span>{detective.completedCases}</span></h2>
+                                    <h2 className={style.info}><strong>Email:</strong> <span>{detective.mail}</span></h2>
+                                    <h2 className={style.info}><strong><a className={certificateStyle.glosarij} href={links.glosarij_Office} target="_blank">Office</a>:</strong> <span>{detective.office}</span></h2>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </ReactSlidy>
-            </div>
-            {showNoSuchDetectives && (
-                <div className={style.noSuchDetectives}>
-                    <h1>There are no such detectives</h1>
+                        ))}
+                    </ReactSlidy>
                 </div>
-            )}
-            <DetectiveChart detectives={filteredDetectives} cases={cases} />
+                {showNoSuchDetectives && (
+                    <div className={style.noSuchDetectives}>
+                        <h1>There are no such <a className={certificateStyle.glosarij} style={{ color: 'red' }} href={links.glosarij_Detective} target="_blank">detectives</a></h1>
+                    </div>
+                )}
+                <DetectiveChart detectives={filteredDetectives} cases={cases} />
+            </div>
+            <div className={certificateStyle.certificate}>
+                <a href={links.detectives_client} target="_blank">About this page</a>
+                <FontAwesomeIcon icon={faInfoCircle} />
+            </div>
         </main>
     );
 };

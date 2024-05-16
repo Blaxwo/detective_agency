@@ -22,7 +22,6 @@
 }
 
 .register button {
-    width: 100%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -87,4 +86,8 @@
 .mainRegister{
     margin-bottom: 50px;
     width: 400px;
+}
+.registerButton{
+    width: 420px;
+
 }

@@ -5,9 +5,25 @@ body{
     font-family: "Merriweather", serif;
 }
 
-
-
-
+.glosarij{
+    color: black;
+    text-decoration: none;
+}
+.certificate a{
+    text-decoration: none;
+    padding-right: 7px;
+}
+.certificate{
+    padding-left: 90%;
+    color: #1c1c8c;
+}
+.tableCertificate a{
+    text-decoration: none;
+    padding-right: 7px;
+}
+.tableCertificate{
+    margin-top: 20px;
+}
 
 
 

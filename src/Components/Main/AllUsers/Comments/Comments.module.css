@@ -19,19 +19,24 @@
     flex-direction: column;
 }
 
-label {
+.commentsSection label {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-textarea {
+.commentsSection textarea {
     height: 100px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
-
+.main h2 {
+    text-align: center;
+    color: #333;
+    font-size: 50px;
+}
 .addComments button {
     background-color: #4c86af;
     color: #fff;
@@ -79,7 +84,7 @@ textarea {
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 90px;
 }
 
 

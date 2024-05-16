@@ -18,29 +18,3 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
-
-// ReactDOM.render(
-//     <BrowserRouter>
-//         <Routes>
-//             <Route path="/*" element={<App />} />
-//         </Routes>
-//     </BrowserRouter>,
-//     document.getElementById('root')
-// );
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// let rerenderDOM = () => {
-//     root.render(
-//         <BrowserRouter>
-//             <Routes>
-//                 <Route path="/*" element={<App />} />
-//             </Routes>
-//         </BrowserRouter>
-//     );
-// }
-// rerenderDOM(store.getState());
-// store.subscribe(() => {
-//     let state = store.getState();
-//     rerenderDOM(state)
-// });

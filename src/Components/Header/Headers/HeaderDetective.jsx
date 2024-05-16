@@ -17,7 +17,7 @@ const HeaderDetective = () => {
                 <NavLink to="detectives">Detectives</NavLink>
                 <NavLink to="comments">Comments</NavLink>
                 <NavLink to="my_clients">My clients</NavLink>
-                <NavLink to="my_cases">My cases</NavLink>
+                {/*<NavLink to="my_cases">My cases</NavLink>*/}
                 <NavLink to="login"><img src={user} alt="login" className={style.userIcon}/></NavLink>
 
             </nav>

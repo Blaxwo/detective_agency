@@ -1,0 +1,68 @@
+
+function createLink(path, id){
+    return "https://sasha.tiwri.com/"+path+".htm?ms=ARA%3D&st=MA%3D%3D&sct=MA%3D%3D&mw=Mjgw"+id
+}
+
+const links = {
+    'glosarij': createLink('glosarij'),
+    'content': createLink('zmist'),
+    'user': createLink('koristuvach'),
+    'home_page': createLink('domashnya_storinka'),
+    'login': createLink('vkhid'),
+    'registration': createLink('re_stratsiya'),
+    'services': createLink('servisi'),
+    'detectives_client': createLink('detektivi_1'),
+    'comments': createLink('komentari'),
+    'about_us': createLink('pro_nas'),
+    'manager': createLink('menedzher'),
+    'detectives_manager': createLink('detektivi_2'),
+    'all_clients': createLink('vsi_kli_nti'),
+    'cases': createLink('spravi'),
+    'new_cases': createLink('novi_spravi'),
+    'finished_cases': createLink('zakincheni_spravi'),
+    'canceled_cases': createLink('vidkhileni_spravi'),
+    'ongoing_cases': createLink('spravi_u_protsesi'),
+    'detective': createLink('detektiv'),
+    'detectives_detective': createLink('detektivi_3'),
+    'my_clients': createLink('moi_kli_nti'),
+    'client': createLink('kli_nt'),
+    'my_cases': createLink('moi_spravi'),
+    'authorised': createLink('vkhid','#authorised'),
+
+    'glosarij_Detective': createLink('glosarij', '#Детектив'),
+    'glosarij_Calendar': createLink('glosarij', '#Календар'),
+    'glosarij_Client': createLink('glosarij', '#Клієнт'),
+    'glosarij_Button_+': createLink('glosarij', '#+'),
+    'glosarij_Button_Delete': createLink('glosarij', '#Delete'),
+    'glosarij_Button_Send': createLink('glosarij', '#Send'),
+    'glosarij_Button_Approve': createLink('glosarij', '#Approve'),
+    'glosarij_Button_Confirm': createLink('glosarij', '#Confirm'),
+    'glosarij_Button_Cancel': createLink('glosarij', '#Cancel'),
+    'glosarij_Manager': createLink('glosarij', '#Менеджер'),
+    'glosarij_Table': createLink('glosarij', '#Таблиця'),
+    'glosarij_Filtration': createLink('glosarij', '#Фільтрація'),
+    'glosarij_Forma_AddNewCase': createLink('glosarij', '#Add_New_Case'),
+    'glosarij_Forma_ContactUs': createLink('glosarij', '#Contact_Us'),
+    'glosarij_Forma_LogIn': createLink('glosarij', '#Log_In'),
+    'glosarij_Forma_Register': createLink('glosarij', '#Register'),
+    'glosarij_Case': createLink('glosarij', '#Case'),
+    'glosarij_Comments': createLink('glosarij', '#Comments'),
+    'glosarij_Comments_files': createLink('glosarij', '#Comments_files'),
+    'glosarij_Description_Client': createLink('glosarij', '#Description_client'),
+    'glosarij_Description_Case': createLink('glosarij', '#Description_case'),
+    'glosarij_Experience': createLink('glosarij', '#Experience'),
+    'glosarij_File': createLink('glosarij', '#File'),
+    'glosarij_Office': createLink('glosarij', '#Office'),
+    'glosarij_Paid': createLink('glosarij', '#Paid'),
+    'glosarij_Phase': createLink('glosarij', '#Phase'),
+    'glosarij_Role': createLink('glosarij', '#Role'),
+    'glosarij_Services': createLink('glosarij', '#Services'),
+    'glosarij_Sort_Order': createLink('glosarij', '#Sort_Order'),
+    'glosarij_Status': createLink('glosarij', '#Status'),
+
+    'detectives_instractionDiagrama': createLink('detektivi_1', '#instractionDiagrama'),
+    'myClients_casesInformationClient': createLink('moi_kli_nti', '#casesInformationClient'),
+    'allClients_casesInformationClient': createLink('vsi_kli_nti', '#casesInformationClient')
+}
+
+export default links

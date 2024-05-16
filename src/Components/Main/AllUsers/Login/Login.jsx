@@ -4,6 +4,10 @@ import { useRef, useState, useEffect } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import certificateStyle from "../../Main.module.css";
+import links from "../../../hyperlinksController";
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const Main = () => {
     const { setAuth } = useAuth();
     const navigate  = useNavigate(); // Изменение здесь
@@ -38,15 +42,12 @@ const Main = () => {
         e.preventDefault();
 
         try {
-            // Заменяем запрос к серверу на проверку локальных данных пользователя
             console.log(user)
             console.log(pwd)
             const foundUser = users.find(u => u.name === user);
             if (foundUser) {
-                // Если пользователь найден, проверяем пароль
                 if (foundUser.password == pwd) {
                     console.log('Пользователь найден и пароль совпадает');
-                    // Успешная аутентификация
                     handleAuthentication(foundUser);
                 } else {
                     console.log('Пароль не совпадает');
@@ -63,7 +64,6 @@ const Main = () => {
                 }
             }
         } catch (err) {
-            // Обработка ошибок
             console.error('Error:', err);
             setErrMsg('Login Failed');
             if (errRef.current) {
@@ -74,38 +74,44 @@ const Main = () => {
 
     return (
         <main>
-            <section className={style.logInSection}>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h1>Sign In</h1>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        ref={userRef}
-                        autoComplete="off"
-                        onChange={(e) => setUser(e.target.value)}
-                        value={user}
-                        required
-                    />
+            <div className={style.page}>
+                <section className={style.logInSection}>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <h1><a className={certificateStyle.glosarij} style={{ color: 'black' }} href={links.glosarij_Forma_LogIn} target="_blank">Sign In:</a></h1>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            ref={userRef}
+                            autoComplete="off"
+                            onChange={(e) => setUser(e.target.value)}
+                            value={user}
+                            required
+                        />
 
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        onChange={(e) => setPwd(e.target.value)}
-                        value={pwd}
-                        required
-                    />
-                    <button>Sign In</button>
-                </form>
-                <p>
-                    Need an Account?<br />
-                    <span className="line">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            onChange={(e) => setPwd(e.target.value)}
+                            value={pwd}
+                            required
+                        />
+                        <button>Sign In</button>
+                    </form>
+                    <p>
+                        Need an Account?<br />
+                        <span className="line">
             <Link to="/register">Sign Up</Link>
           </span>
-                </p>
-            </section>
+                    </p>
+                </section>
+            </div>
+            <div className={certificateStyle.certificate}>
+                <a href={links.login} target="_blank">About this page</a>
+                <FontAwesomeIcon icon={faInfoCircle} />
+            </div>
         </main>
     );
 };

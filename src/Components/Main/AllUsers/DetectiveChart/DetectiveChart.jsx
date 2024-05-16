@@ -1,7 +1,9 @@
 import { Chart, registerables } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import style from './DetectiveChart.module.css'
-import {useState} from "react";
+import React, {useState} from "react";
+import certificateStyle from "../../Main.module.css";
+import links from "../../../hyperlinksController";
 // Регистрация необходимых адаптеров
 Chart.register(...registerables);
 const DetectiveChart = ({ detectives, cases }) => {
@@ -15,15 +17,15 @@ const DetectiveChart = ({ detectives, cases }) => {
             const [start, end] = selectedPeriod.split('|');
 
             const dateStartString = start;
-            const [dayStart, monthStart, yearStart] = dateStartString.split('-');
+            const [yearStart, monthStart, dayStart] = dateStartString.split('-');
             const selectedPeriodStart = new Date(yearStart, monthStart - 1, dayStart);
 
             const dateEndString = end;
-            const [dayEnd, monthEnd, yearEnd] = dateEndString.split('-');
+            const [yearEnd, monthEnd, dayEnd] = dateEndString.split('-');
             const selectedPeriodEnd = new Date(yearEnd, monthEnd - 1, dayEnd);
 
             filteredCases = cases.filter(c => {
-                const [day, month, year] = c.date.split('-'); // Розбиваємо рядок на числа
+                const [year, month, day] = c.date.split('-'); // Розбиваємо рядок на числа
                 const caseDate = new Date(year, month - 1, day); // Створюємо об'єкт Date
 
                 return c.status === 'done' && caseDate >= selectedPeriodStart && caseDate <= selectedPeriodEnd;
@@ -73,15 +75,15 @@ const DetectiveChart = ({ detectives, cases }) => {
 
     return (
         <div className={style.allElements}>
-            <h1 className={style.heading}>Detectives' Completed Cases</h1>
+            <h1 className={style.heading}><a className={certificateStyle.glosarij} href={links.detectives_instractionDiagrama} target="_blank">Detectives' Completed Cases</a></h1>
             <div className={style.diagramAndPeriodSelector}>
                 <div className={style.periodSelector}>
                     <label htmlFor="period">Select Period:  </label>
                     <select id="period" value={selectedPeriod} onChange={handlePeriodChange}>
                         <option value="all">All</option>
-                        <option value={`01-01-2023|01-01-2024`}>2023 - 2024</option>
-                        <option value={`01-01-2022|01-01-2023`}>2022 - 2023</option>
-                        <option value={`01-01-2002|05-01-2022`}>2002 - 2022</option>
+                        <option value={`2023-01-01|2024-01-01`}>2023 - 2024</option>
+                        <option value={`2022-01-01|2023-01-01`}>2022 - 2023</option>
+                        <option value={`2002-01-01|2021-01-01`}>2002 - 2022</option>
                     </select>
                 </div>
                 <Bar data={getData()} options={options} />
